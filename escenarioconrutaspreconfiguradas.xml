@@ -135,13 +135,13 @@
     <if id="3" net="Net34">
       <ipv6>fcf0:0:3:4::1/64</ipv6>
     </if>
-    <if id="3" net="Net331">
+    <if id="4" net="Net331">
       <ipv6>ffd00:0:31::1/64</ipv6>
     </if>
-    <if id="4" net="Net332">
+    <if id="5" net="Net332">
       <ipv6>fd00:0:32::1/64</ipv6>
     </if>
-    <if id="5" net="Net332">
+    <if id="6" net="Net332">
       <ipv6>fd00:0:33::1/64</ipv6>
     </if>
     
