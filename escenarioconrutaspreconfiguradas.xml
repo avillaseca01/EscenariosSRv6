@@ -60,6 +60,30 @@
     <route type="ipv6" gw="fd00:0:13::1">default</route>   
   </vm>
 
+<vm name="h31" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <if id="1" net="Net331">
+      <ipv6>fd00:0:31::2/64</ipv6>
+    </if>
+    <route type="ipv6" gw="fd00:0:31::1">default</route>   
+  </vm>
+  
+  <vm name="h32" type="lxc" exec_mode="lxc-attach" arch="x86_64"> 
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <if id="1" net="Net332">
+      <ipv6>fd00:0:32::2/64</ipv6>
+    </if>
+    <route type="ipv6" gw="fd00:0:32::1">default</route>   
+  </vm>
+
+  <vm name="h33" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <if id="1" net="Net333">
+      <ipv6>fd00:0:33::2/64</ipv6>
+    </if>
+    <route type="ipv6" gw="fd00:0:33::1">default</route>   
+  </vm>
+
   <vm name="r1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if net="lo" id="1">
