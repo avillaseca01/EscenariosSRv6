@@ -7,8 +7,7 @@
     <automac/>
     <vm_mgmt type="none" />
     <vm_defaults>
-        <console id="0" display="no"/>
-        <console id="1" display="yes"/>
+        <console id="0" display="yes"/>
     </vm_defaults>
     
   </global>
@@ -17,7 +16,7 @@
   <net name="Net12" mode="virtual_bridge" />
   <net name="Net221" mode="virtual_bridge" />
 
-  <vm name="h1" type="lxc">
+  <vm name="h1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net111">
       <ipv6>fd00:0:11::2/64</ipv6>
@@ -25,7 +24,7 @@
     <route type="ipv6" gw="fd00:0:11::1">default</route>   
   </vm>
 
-  <vm name="h2" type="lxc">
+  <vm name="h2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net221">
       <ipv6>fd00:0:21::2/64</ipv6>
@@ -33,11 +32,11 @@
     <route type="ipv6" gw="fd00:0:21::1">default</route>
   </vm>
 
-  <vm name="r1" type="lxc">
+  <vm name="r1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
-    <if net="lo" id="1">
-        <ipv6>fcff:1::1</ipv6>
-    </if>
+<!--    <if net="lo" id="1">
+        <ipv6>fcff:1::1</ipv6> 
+    </if> -->
     <if id="2" net="Net111">
       <ipv6>fd00:0:11::1/64</ipv6>
     </if>
@@ -48,11 +47,11 @@
     <forwarding type="ip" />
   </vm>
 
-  <vm name="r2" type="lxc">
+  <vm name="r2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
-    <if net="lo" id="1">
-        <ipv6>fcff:2::1</ipv6>
-    </if>
+<!--     <if net="lo" id="1">
+        <ipv6>fcff:2::1</ipv6> 
+    </if> -->
     <if id="2" net="Net221">
       <ipv6>fd00:0:21::1/64</ipv6>
     </if>
