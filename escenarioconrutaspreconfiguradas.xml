@@ -136,7 +136,7 @@
       <ipv6>fcf0:0:3:4::1/64</ipv6>
     </if>
     <if id="4" net="Net331">
-      <ipv6>ffd00:0:31::1/64</ipv6>
+      <ipv6>fd00:0:31::1/64</ipv6>
     </if>
     <if id="5" net="Net332">
       <ipv6>fd00:0:32::1/64</ipv6>
