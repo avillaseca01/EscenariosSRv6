@@ -34,9 +34,9 @@
 
   <vm name="r1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
-<!--    <if net="lo" id="1">
+    <if net="lo" id="1">
         <ipv6>fcff:1::1</ipv6> 
-    </if> -->
+    </if> 
     <if id="2" net="Net111">
       <ipv6>fd00:0:11::1/64</ipv6>
     </if>
@@ -49,9 +49,9 @@
 
   <vm name="r2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
-<!--     <if net="lo" id="1">
+     <if net="lo" id="1">
         <ipv6>fcff:2::1</ipv6> 
-    </if> -->
+    </if>
     <if id="2" net="Net221">
       <ipv6>fd00:0:21::1/64</ipv6>
     </if>
