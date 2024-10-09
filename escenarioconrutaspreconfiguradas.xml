@@ -36,6 +36,10 @@
   <net name="Net882" mode="virtual_bridge" />
   <net name="Net883" mode="virtual_bridge" />
 
+  <!-- red de ayuda -->
+  <net name="Net221" mode="virtual_bridge" />
+
+
   <vm name="h11" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net111">
@@ -59,6 +63,16 @@
     </if>
     <route type="ipv6" gw="fd00:0:13::1">default</route>   
   </vm>
+
+  <!-- Maquina de ayuda -->
+  <vm name="21" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <if id="1" net="Net221">
+      <ipv6>fd00:0:21::2/64</ipv6>
+    </if>
+    <route type="ipv6" gw="fd00:0:21::1">default</route>   
+  </vm>
+
 
 <vm name="h31" type="lxc" exec_mode="lxc-attach" arch="x86_64">
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
@@ -112,6 +126,11 @@
     <route type="ipv6" gw="fcf0:0:1:2::2">fd00:0:81::/64</route>
     <route type="ipv6" gw="fcf0:0:1:2::2">fd00:0:82::/64</route>
     <route type="ipv6" gw="fcf0:0:1:2::2">fd00:0:83::/64</route>
+
+
+    <!-- Ruta de ayuda -->
+    <route type="ipv6" gw="fcf0:0:1:2::2">fd00:0:21::/64</route>
+
     <forwarding type="ip" />
   </vm>
 
@@ -128,6 +147,11 @@
     </if>
     <if id="4" net="Net27">
       <ipv6>fcf0:0:2:7::1/64</ipv6>
+    </if>
+
+  <!-- Interfaz de ayuda -->
+    <if id="5" net="Net221">
+      <ipv6>fd00:0:21::1/64</ipv6>
     </if>
     
     <route type="ipv6" gw="fcf0:0:1:2::1">fd00:0:11::/64</route>
