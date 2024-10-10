@@ -37,8 +37,6 @@
   <net name="Net882" mode="virtual_bridge" />
   <net name="Net883" mode="virtual_bridge" />
 
-  <!-- netayuda-->
-  <net name="Net441" mode="virtual_bridge" />
   <!--
   
   SISTEMAS FINALES
@@ -117,14 +115,6 @@
     <route type="ipv6" gw="fd00:0:53::1">default</route>   
   </vm>
 
-  <!-- sistemafinalayuda-->
-  <vm name="h41" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
-    <if id="1" net="Net441">
-      <ipv6>fd00:0:41::2/64</ipv6>
-    </if>
-    <route type="ipv6" gw="fd00:0:41::1">default</route>   
-  </vm>
   <!--
   
   ROUTERS
@@ -248,15 +238,14 @@
     <if id="4" net="Net46">
       <ipv6>fcf0:0:4:6::1/64</ipv6>
     </if>
-
-    <!-- interfaz ayuda-->
-    <if id="5" net="Net441">
-      <ipv6>fd00:0:41::1/64</ipv6>
-    </if>
    
     <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:11::/64</route>
     <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:12::/64</route>
     <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:13::/64</route>
+
+    <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:31::/64</route>
+    <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:32::/64</route>
+    <route type="ipv6" gw="fcf0:0:3:4::1">fd00:0:33::/64</route>
     
     <route type="ipv6" gw="fcf0:0:4:5::2">fd00:0:51::/64</route>
     <route type="ipv6" gw="fcf0:0:4:5::2">fd00:0:52::/64</route>
@@ -292,6 +281,10 @@
     <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:11::/64</route>
     <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:12::/64</route>
     <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:13::/64</route>
+
+    <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:31::/64</route>
+    <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:32::/64</route>
+    <route type="ipv6" gw="fcf0:0:4:5::1">fd00:0:33::/64</route>
     
     <route type="ipv6" gw="fcf0:0:5:6::2">fd00:0:81::/64</route>
     <route type="ipv6" gw="fcf0:0:5:6::2">fd00:0:82::/64</route>
