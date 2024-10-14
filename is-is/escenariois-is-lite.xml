@@ -35,6 +35,7 @@
   -->
   <!-- SISTEMAS R1-->
   <vm name="h11" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <mem>128M</mem>
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net111">
       <ipv6>fd00:0:11::2/64</ipv6>
@@ -44,6 +45,7 @@
 
 <!-- SISTEMAS R3-->
 <vm name="h31" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <mem>128M</mem>
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net331">
       <ipv6>fd00:0:31::2/64</ipv6>
@@ -53,6 +55,7 @@
 
 <!-- SISTEMAS R5-->
   <vm name="h51" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <mem>128M</mem>
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net551">
       <ipv6>fd00:0:51::2/64</ipv6>
@@ -62,6 +65,7 @@
 
 <!-- SISTEMAS R8-->
   <vm name="h81" type="lxc" exec_mode="lxc-attach" arch="x86_64">
+    <mem>128M</mem>
     <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
     <if id="1" net="Net881">
       <ipv6>fd00:0:81::2/64</ipv6>
@@ -75,9 +79,9 @@
   -->
 
   <vm name="r1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:1::1</ipv6>
+        <ipv6>fcff:1::1/32</ipv6>
     </if>
     <if id="2" net="Net12">
       <ipv6>fcf0:0:1:2::1/64</ipv6>
@@ -86,12 +90,20 @@
       <ipv6>fd00:0:11::1/64</ipv6>
     </if>
     <forwarding type="ip" />
+    <filetree seq="on_boot" root="/root/">conf/r1</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r1/isisd.conf /etc/frr
+      cp /root/r1/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r1/start.sh
+    </exec>
   </vm>
 
   <vm name="r2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:2::1</ipv6>
+        <ipv6>fcff:2::1/32</ipv6>
     </if>
     <if id="2" net="Net12">
       <ipv6>fcf0:0:1:2::2/64</ipv6>
@@ -102,14 +114,21 @@
     <if id="4" net="Net27">
       <ipv6>fcf0:0:2:7::1/64</ipv6>
     </if>
-
     <forwarding type="ip" />
+  <filetree seq="on_boot" root="/root/">conf/r2</filetree>
+  <exec seq="on_boot" type="verbatim" ostype="system">
+    cp /root/r2/isisd.conf /etc/frr
+    cp /root/r2/zebra.conf /etc/frr
+    chmod 0640 /etc/isisd.conf 
+    chmod 0640 /etc/zebra.conf 
+    /root/r2/start.sh
+  </exec>  
   </vm>
 
   <vm name="r3" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:3::1</ipv6>
+        <ipv6>fcff:3::1/32</ipv6>
     </if>
     <if id="2" net="Net23">
       <ipv6>fcf0:0:2:3::2/64</ipv6>
@@ -122,12 +141,21 @@
     </if>
 
     <forwarding type="ip" />
+
+    <filetree seq="on_boot" root="/root/">conf/r3</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r3/isisd.conf /etc/frr
+      cp /root/r3/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r3/start.sh
+    </exec>
   </vm>
 
   <vm name="r4" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:4::1</ipv6>
+        <ipv6>fcff:4::1/32</ipv6>
     </if>
     <if id="2" net="Net34">
       <ipv6>fcf0:0:3:4::2/64</ipv6>
@@ -140,12 +168,21 @@
     </if>
 
     <forwarding type="ip" />
+
+    <filetree seq="on_boot" root="/root/">conf/r4</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r4/isisd.conf /etc/frr
+      cp /root/r4/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r4/start.sh
+    </exec>
   </vm>
 
   <vm name="r5" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:5::1</ipv6>
+        <ipv6>fcff:5::1/32</ipv6>
     </if>
     <if id="2" net="Net45">
       <ipv6>fcf0:0:4:5::2/64</ipv6>
@@ -161,9 +198,9 @@
   </vm>
 
   <vm name="r6" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:6::1</ipv6>
+        <ipv6>fcff:6::1/32</ipv6>
     </if>
     <if id="2" net="Net46">
       <ipv6>fcf0:0:4:6::2/64</ipv6>
@@ -179,12 +216,20 @@
     </if>
    
     <forwarding type="ip" />
+
+    <filetree seq="on_boot" root="/root/">conf/r6</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r6/isisd.conf /etc/frr
+      cp /root/r6/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r6/start.sh 
   </vm>
 
   <vm name="r7" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:7::1</ipv6>
+        <ipv6>fcff:7::1/32</ipv6>
     </if>
     <if id="2" net="Net27">
       <ipv6>fcf0:0:2:7::2/64</ipv6>
@@ -197,12 +242,20 @@
     </if>
    
     <forwarding type="ip" />
+
+    <filetree seq="on_boot" root="/root/">conf/r7</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r7/isisd.conf /etc/frr
+      cp /root/r7/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r7/start.sh
   </vm>
 
   <vm name="r8" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
     <if net="lo" id="1">
-        <ipv6>fcff:8::1</ipv6>
+        <ipv6>fcff:8::1/32</ipv6>
     </if>
     <if id="2" net="Net68">
       <ipv6>fcf0:0:6:8::2/64</ipv6>
@@ -214,5 +267,13 @@
       <ipv6>fd00:0:81::1/64</ipv6>
     </if>
     <forwarding type="ip" />
+
+    <filetree seq="on_boot" root="/root/">conf/r8</filetree>
+    <exec seq="on_boot" type="verbatim" ostype="system">
+      cp /root/r8/isisd.conf /etc/frr
+      cp /root/r8/zebra.conf /etc/frr
+      chmod 0640 /etc/isisd.conf 
+      chmod 0640 /etc/zebra.conf 
+      /root/r8/start.sh
   </vm>
 </vnx>
