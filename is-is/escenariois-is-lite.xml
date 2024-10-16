@@ -79,7 +79,7 @@
   -->
 
   <vm name="r1" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:1::1/32</ipv6>
     </if>
@@ -94,14 +94,18 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r1/isisd.conf /etc/frr
       cp /root/r1/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf 
       /root/r1/start.sh
     </exec>
   </vm>
 
   <vm name="r2" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:2::1/32</ipv6>
     </if>
@@ -119,14 +123,18 @@
   <exec seq="on_boot" type="verbatim" ostype="system">
     cp /root/r2/isisd.conf /etc/frr
     cp /root/r2/zebra.conf /etc/frr
-    chmod 0640 /etc/isisd.conf 
-    chmod 0640 /etc/zebra.conf 
+    chmod 0640 /etc/frr/isisd.conf 
+    chmod 0640 /etc/frr/zebra.conf
+    chown frr:frr /etc/frr/isisd.conf
+    chown frr:frr /etc/frr/zebra.conf
+    vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+    vtysh -c 'configure terminal' -f /etc/frr/zebra.conf  
     /root/r2/start.sh
   </exec>  
   </vm>
 
   <vm name="r3" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:3::1/32</ipv6>
     </if>
@@ -146,14 +154,18 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r3/isisd.conf /etc/frr
       cp /root/r3/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf 
       /root/r3/start.sh
     </exec>
   </vm>
 
   <vm name="r4" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:4::1/32</ipv6>
     </if>
@@ -173,14 +185,18 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r4/isisd.conf /etc/frr
       cp /root/r4/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf
       /root/r4/start.sh
     </exec>
   </vm>
 
   <vm name="r5" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:5::1/32</ipv6>
     </if>
@@ -198,7 +214,7 @@
   </vm>
 
   <vm name="r6" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:6::1/32</ipv6>
     </if>
@@ -221,13 +237,18 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r6/isisd.conf /etc/frr
       cp /root/r6/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf 
       /root/r6/start.sh 
+      </exec>
   </vm>
 
   <vm name="r7" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:7::1/32</ipv6>
     </if>
@@ -247,13 +268,18 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r7/isisd.conf /etc/frr
       cp /root/r7/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf 
       /root/r7/start.sh
+    </exec>
   </vm>
 
   <vm name="r8" type="lxc" exec_mode="lxc-attach" arch="x86_64">
-    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-20.04-v025-vnxlab</filesystem>
+    <filesystem type="cow">/usr/share/vnx/filesystems/vnx_rootfs_lxc_ubuntu64-22.04-v025-routerwithfrr</filesystem>
     <if net="lo" id="1">
         <ipv6>fcff:8::1/32</ipv6>
     </if>
@@ -272,8 +298,13 @@
     <exec seq="on_boot" type="verbatim" ostype="system">
       cp /root/r8/isisd.conf /etc/frr
       cp /root/r8/zebra.conf /etc/frr
-      chmod 0640 /etc/isisd.conf 
-      chmod 0640 /etc/zebra.conf 
+      chmod 0640 /etc/frr/isisd.conf 
+      chmod 0640 /etc/frr/zebra.conf
+      chown frr:frr /etc/frr/isisd.conf
+      chown frr:frr /etc/frr/zebra.conf
+      vtysh -c 'configure terminal' -f /etc/frr/isisd.conf 
+      vtysh -c 'configure terminal' -f /etc/frr/zebra.conf 
       /root/r8/start.sh
+    </exec>
   </vm>
 </vnx>
