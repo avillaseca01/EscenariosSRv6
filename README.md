@@ -21,6 +21,8 @@ ip -6 route add fd00:0:11::/64 encap seg6 mode encap segs fcff:4::1,fcff:1::1 de
 ```
 ## Direciones IPv6
 
+### Enlaces sistema final - router
+
 | Host        | Router   | Host IPv6                | Router IPv6               |
 |-------------|----------|--------------------------|---------------------------|
 | h11 - eth1  | r1       | `fd00:0:11::2/64`        | `fd00:0:11::1/64`         |
@@ -28,7 +30,16 @@ ip -6 route add fd00:0:11::/64 encap seg6 mode encap segs fcff:4::1,fcff:1::1 de
 | h51 - eth1  | r5       | `fd00:0:51::2/64`        | `fd00:0:51::1/64`         |
 | h81 - eth1  | r8       | `fd00:0:81::2/64`        | `fd00:0:81::1/64`         |
 
+### Enlaces router router
 
-## Agradecimientos
+| Router A  | Router B  | Router A IPv6            | Router B IPv6              |
+|-----------|-----------|--------------------------|----------------------------|
+| r1 - eth2 | r2 - eth2 | `fcf0:0:1:2::1/64`       | `fcf0:0:1:2::2/64`         |
+| r2 - eth3 | r3 - eth2 | `fcf0:0:2:3::1/64`       | `fcf0:0:2:3::2/64`         |
+| r2 - eth4 | r7 - eth2 | `fcf0:0:2:7::1/64`       | `fcf0:0:2:7::2/64`         |
+| r3 - eth2 | r2 - eth2 | `fcf0:0:1:2::1/64`       | `fcf0:0:1:2::2/64`         |
+| r3 - eth2 | r2 - eth2 | `fcf0:0:1:2::1/64`       | `fcf0:0:1:2::2/64`         |
+| r3 - eth2 | r2 - eth2 | `fcf0:0:1:2::1/64`       | `fcf0:0:1:2::2/64`         |
+| r3 - eth2 | r2 - eth2 | `fcf0:0:1:2::1/64`       | `fcf0:0:1:2::2/64`         |
 
  [rose-srv6-tutorial](https://github.com/netgroup/rose-srv6-tutorial.git)
