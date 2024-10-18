@@ -29,3 +29,6 @@ ip -6 route add fd00:0:11::/64 encap seg6 mode encap segs fcff:4::1,fcff:1::1 de
 | h81 - eth1  | r8       | `fd00:0:81::2/64`        | `fd00:0:81::1/64`         |
 
 
+## Acknowledgements
+
+This project drew inspiration from [rose-srv6-tutorial](https://github.com/netgroup/rose-srv6-tutorial.git)
